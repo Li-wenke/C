@@ -311,26 +311,26 @@
 //	return 0;
 //}
 
-int main()
-{
-	//关机
-	//C语言提供了一个函数：system()- 执行系统命令的
-	char input[20] = { 0 };//存放输入的信息
-	system("shutdown -s -t 60");//system - stdlib.h
-	while (1)
-	{
-		printf("请注意，你的电脑在1分钟内关机，如果输入：我是猪，就取消关机\n");
-		scanf("%s", input);
-		//string.h
-		if (strcmp(input, "我是猪") == 0)//两个字符串比较是不能使用==的，应该使用strcmp() string compare
-		{
-			system("shutdown -a");
-			break;
-		}
-	}
-
-	return 0;
-}
+//int main()
+//{
+//	//关机
+//	//C语言提供了一个函数：system()- 执行系统命令的
+//	char input[20] = { 0 };//存放输入的信息
+//	system("shutdown -s -t 60");//system - stdlib.h
+//	while (1)
+//	{
+//		printf("请注意，你的电脑在1分钟内关机，如果输入：我是猪，就取消关机\n");
+//		scanf("%s", input);
+//		//string.h
+//		if (strcmp(input, "我是猪") == 0)//两个字符串比较是不能使用==的，应该使用strcmp() string compare
+//		{
+//			system("shutdown -a");
+//			break;
+//		}
+//	}
+//
+//	return 0;
+//}
 
 
 //goto 语句只能在一个函数范围内跳转，不能跨函数
@@ -347,3 +347,255 @@ int main()
 //	return 0;
 //}
 
+//int main()
+//{
+//	int i = 0;
+//	//0-9 10
+//	for (i = 0; i < 10; i++)
+//	{
+//
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 0, b = 0;
+//	for (a = 1, b = 1; a <= 100; a++)
+//	{
+//		if (b >= 20) break;
+//		if (b % 3 == 1)
+//		{
+//			b = b + 3;
+//			continue;
+//		}
+//		b = b - 5;
+//	}
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+//编写程序数一下 1到 100 的所有整数中出现多少个数字9
+//9 19 29 39 49 59 69 79 89 99 
+//90 91 92 93 94 95 96 97 98 
+
+//int main()
+//{
+//	int i = 0;
+//	int count = 0;
+//	for (i = 1; i < 101; i++)
+//	{
+//		if (i % 10 == 9)
+//		{ 
+//			printf("%d ", i);
+//			count++;
+//		}
+//		else if (i / 10 == 9)
+//		{ 
+//			printf("%d ", i);
+//			count++;
+//		}
+//			
+//	}
+//	printf("\n%d", count);
+//
+//	return 0;
+//}
+
+//计算1/1-1/2+1/3-1/4+1/5 …… + 1/99 - 1/100 的值，打印出结果
+
+
+//这只是加没有减
+//int main()
+//{
+//	int i = 0;
+//	double sum = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		sum += 1.0 / i;
+//	}
+//	printf("%lf ", sum);
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	double sum = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		if (i % 2 == 0)
+//			sum -= 1.0 / i;
+//		else
+//			sum += 1.0 / i;
+//	}
+//	printf("%lf ", sum);
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	double sum = 0;
+//	int flag = 1;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		sum += flag * 1.0 / i; 加减交替
+//		flag = -flag;
+//	}
+//	printf("%lf ", sum);
+//
+//	return 0;
+//}
+// 
+// 
+// 
+//求10 个整数中最大值
+
+//int main()
+//{
+//  int arr[10] = { 1,2,3,4,5,6,7,8,9,20 };
+//	int arr[10] = { -1,-2,-3,-4,-5,-6,-7,-8,-9,-10 };
+//	int max = arr[0];
+//	int i = 0;
+//	for (i = 1; i < 10; i++)
+//	{
+//		if (arr[i] > max)
+//		{
+//			max = arr[i];
+//		}
+//	}
+//	printf("%d\n", max);
+//
+//	return 0;
+//}
+
+//在屏幕上输出9*9乘法口诀表
+//1*1=1
+//2*1=2 2*2=4
+//3*1=3 3*2=6 3*3=9
+//...
+
+
+int main()
+{
+	int i = 1;
+	for (i = 1; i <= 9; i++)
+	{
+		//打印一行
+		int j = 0;
+		for (j = 1; j <= i; j++)
+		{
+			//printf("%d*%d=%-2d",i,j,(i*j));//向左对齐打印两位不够空格填充
+			printf("%d*%d=%d\t", i, j, (i * j));
+		}
+		printf("\n");
+	}
+
+
+	return 0;
+}
+
+void meun()
+{
+	printf("******************************************\n");
+	printf("************    1. play    ***************\n");
+	printf("************    0. exit    ***************\n");
+	printf("******************************************\n");
+}
+
+//猜数字游戏
+void game()
+{
+	int num = 0;//用户猜的数字
+	int ret = rand() % 100 + 1;
+	while (1)
+	{
+		printf("请猜数字:->");
+		scanf("%d", &num);
+		if (num > ret)
+		{
+			printf("数字大了");
+		}
+		else if (num < ret)
+		{
+			printf("数字小了");
+		}
+		else
+		{
+			printf("找到了");
+			break;
+		}
+	}
+}
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+
+	int input = 0;//定义用户输入值
+	srand((unsigned int)time(NULL)); //生成随机数
+	//因为一开始就要玩游戏,至少执行一次,所以用do..while结构
+	do
+	{	
+		//游戏一开始需要一个菜单
+		meun();//打印菜单
+		printf("请选择:->");
+		scanf("%d", &input);//接受用户输入值
+		switch (input)
+		{
+			case 1:
+				game();
+				break;
+			case 0:
+				printf("退出游戏");
+				break;
+			default:
+				printf("选择错误,重新选择.\n");
+				break;
+		}
+
+
+	} while (input);//因为游戏设定开始游戏是1退出游戏是0 介于do...while结构正好循环条件可用用户输入的值 反正至少会执行一次
+
+
+
+	return 0;
+}
+
+
+//二分查找法  有序数组
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,11,13,15,17,19,21,23,25,27,29,31 };//定义一组有序数组
+	int k = 13;//要查找的数
+	int sz = sizeof(arr) / sizeof(arr[0]);//计算数组的个数
+	int left = 0;//数组的左下标
+	int right = sz - 1;//数组的右下标
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;//中间元素的下标
+		if (arr[mid] > k)//如果中间数下标所对应的数组值要比查找的数字大
+		{
+			right = mid - 1;//右下标的值变成中间数减1
+		}
+		else if (arr[mid] < k) // 如果中间数下标所对应的数组值要比查找的数字小
+		{
+			left = mid + 1;	//左下标的值变成中间数加1 也就是右移一个位置
+		}
+		else//如果中间数下标所对应的数组值要与查找的数字相等
+		{
+			printf("找到了,元素下标是:%d", mid);
+			break;
+		}
+	}
+	if (left > right)
+	{
+		printf("找不到");
+	}
+	
+
+	return 0;
+}
