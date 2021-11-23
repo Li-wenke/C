@@ -203,9 +203,9 @@
 //	return 0;
 //}
 
-int main()
-{
-	float f = 5.5f;
+//int main()
+//{
+//	float f = 5.5f;
 	//double f = 5.5;
 	//101.1 1.011 * 2^2  s=0 M=1.011 E=2
 	//s=0 M=011 E=2+127
@@ -214,5 +214,73 @@ int main()
 	//double
 	//0100 0000 0001 0110 0000 0000 0000 0000
 	//0x40 16 00 00 00 00 00 00
- 	return 0;
+// 	return 0;
+//}
+
+//int main()
+//{
+	//unsigned char 0~255
+	//unsigned char a = 200;
+	//00000000000000000000000011001000
+	//1100 1000
+	//unsigned char b = 100;
+	//00000000000000000000000001100100
+	//0110 0100
+	//unsigned char c = 0;
+	//c = b + a;
+	//000000000000000000000000 0110 0100
+	//000000000000000000000000 1100 1000
+	//000000000000000000000001 0010 1100
+	//0010 1100
+	//000000000000000000000000 0010 1100
+	//44
+	//printf("%d %d",a+b,c);
+	//             300 44
+	//return 0;
+//}
+
+//int main()
+//{
+	//unsigned int a = 0x1234;
+	//unsigned int b = *(unsigned char*)&a;
+	//在32位大端模式处理器上变量b等于00
+	//return 0;
+//}
+
+//int main()
+//{
+//	int n = 0;
+//	int arr[10][10] = { 0 };
+//	scanf("%d", &n);
+//	int i = 0, j = 0;
+//	for (i = 0; i < n; i++)
+//	{		
+//		for (j = 0; j <= i; j++)
+//		{
+//			
+//			if (j == 0 || i==j)
+//			{
+//				arr[i][j] = 1;
+//			}
+//			else
+//				arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+//			printf("%5d", arr[i][j]);
+//			
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+int main()
+{
+	char killer = 0;
+	for (killer = 'A'; killer <= 'D'; killer++)
+	{
+		if ((killer != 'A') + (killer == 'C') + (killer == 'D') + (killer != 'D') == 3)
+		{
+			printf("%c\n", killer);
+		}
+	}
+	return 0;
 }
